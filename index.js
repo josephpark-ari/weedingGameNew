@@ -49,8 +49,8 @@ console.log(charactersMap);
 
 const boundaries = [];
 const offset = {
-    x: -1035,
-    y: -190,
+    x: -1085,
+    y: -490,
 };
 // const offset = {
 //     x: -735,
@@ -406,8 +406,8 @@ playerRightImage.src = './img/playerRight.png';
 
 const player = new Sprite({
     position: {
-        x: 190,
-        y: 790,
+        x: 150,
+        y: 400,
     },
     image: playerDownImage,
     frames: {
@@ -832,8 +832,8 @@ width: 100vw;
 
 #dpad {
   position: relative;
-  width: 470px;
-  height: 470px;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -858,7 +858,7 @@ top: 80px;
     position: absolute;
     right: 47px;
     transform: rotate(90deg);
-    font-size: 240px;
+    font-size: 180px;
     color: rgba(0, 0, 0, 0.7);
     user-select: none;
     
@@ -869,7 +869,7 @@ top: 80px;
     position: absolute;
     right: 47px;
     transform: rotate(90deg);
-    font-size: 240px;
+    font-size: 180px;
     color: rgba(0, 0, 0, 0.7);
     user-select: none;
 }
@@ -879,7 +879,7 @@ top: 80px;
     position: absolute;
     right: 47px;
     transform: rotate(90deg);
-    font-size: 240px;
+    font-size: 180px;
     color: rgba(0, 0, 0, 0.7);
     user-select: none;
 }
@@ -889,7 +889,7 @@ top: 80px;
     position: absolute;
     right: 47px;
     transform: rotate(90deg);
-    font-size: 240px;
+    font-size: 180px;
     color: rgba(0, 0, 0, 0.7);
     user-select: none;
 }
@@ -910,8 +910,8 @@ top: 80px;
 }
 
 .confirm-button {
-  width: 470px;
-  height: 470px;
+  width: 350px;
+  height: 350px;
   font-size: 120px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.5);
