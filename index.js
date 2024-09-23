@@ -845,10 +845,12 @@ width: 100vw;
   background-color: rgba(255, 255, 255, 0.5);
   border: none;
   clip-path: polygon(49% 50%, 100% 0, 100% 100%);
+  user-select: none;
 }
 
 .dpad-button.up {
   transform: rotate(0deg);
+  user-select: none;
 }
 
 .right-arrow {
@@ -858,6 +860,7 @@ top: 80px;
     transform: rotate(90deg);
     font-size: 240px;
     color: rgba(0, 0, 0, 0.7);
+    user-select: none;
     
 }
 
@@ -868,6 +871,7 @@ top: 80px;
     transform: rotate(90deg);
     font-size: 240px;
     color: rgba(0, 0, 0, 0.7);
+    user-select: none;
 }
 
 .up-arrow {
@@ -877,6 +881,7 @@ top: 80px;
     transform: rotate(90deg);
     font-size: 240px;
     color: rgba(0, 0, 0, 0.7);
+    user-select: none;
 }
 
 .down-arrow {
@@ -886,18 +891,22 @@ top: 80px;
     transform: rotate(90deg);
     font-size: 240px;
     color: rgba(0, 0, 0, 0.7);
+    user-select: none;
 }
 
 .dpad-button.left {
   transform: rotate(90deg);
+  user-select: none;
 }
 
 .dpad-button.down {
   transform: rotate(180deg);
+  user-select: none;
 }
 
 .dpad-button.right {
   transform: rotate(270deg);
+  user-select: none;
 }
 
 .confirm-button {
@@ -907,6 +916,7 @@ top: 80px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.5);
   border: none;
+  user-select: none;
   display: flex;
   justify-content: center;
   align-items: center;
