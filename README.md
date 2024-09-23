@@ -1,2 +1,2 @@
-# weedingGameNew
+# weedingGame
 weedingGame
