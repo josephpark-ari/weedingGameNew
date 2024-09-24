@@ -8,6 +8,7 @@ const c = canvas.getContext('2d');
 // canvas.style.width = '1774px';
 canvas.style.width = window.innerHeight * 1.75;
 canvas.style.height = window.innerHeight;
+// alert(window.innerHeight * 1.75);
 
 // 화면이 작아졌을 때 캔버스가 넘치지 않도록
 document.body.style.overflow = 'hidden';
@@ -787,22 +788,25 @@ document.body.style.overflow = 'hidden';
 window.addEventListener('DOMContentLoaded', () => {
     const controlsHTML = `
   <div id="controlsBox">
-    <div id="controls">
-  <div id="dpad">
-    <button id="right"  class="dpad-button up">
-      <span class="arrow up-arrow">↑</span>
-    </button>
-    <button id="down" class="dpad-button left">
-      <span class="arrow left-arrow">↑</span>
-    </button>
-    <button id="left" class="dpad-button down">
-      <span class="arrow down-arrow">↑</span>
-    </button>
-    <button id="up" class="dpad-button right">
-      <span class="arrow right-arrow">↑</span>
-    </button>
-  </div>
+    <div >
+      <div id="controls">
+<div id="dpad">
+        <button id="right"  class="dpad-button up">
+          <span class="arrow up-arrow">↑</span>
+        </button>
+        <button id="down" class="dpad-button left">
+          <span class="arrow left-arrow">↑</span>
+        </button>
+        <button id="left" class="dpad-button down">
+          <span class="arrow down-arrow">↑</span>
+        </button>
+        <button id="up" class="dpad-button right">
+          <span class="arrow right-arrow">↑</span>
+        </button>
+      </div>
   <button id="confirm" class="confirm-button">확인</button>
+      </div>
+      
 </div>
   </div>
 
@@ -822,7 +826,7 @@ window.addEventListener('DOMContentLoaded', () => {
   left: 20px;
   }
   #controls {
-width: 100vw;
+width: 100%;
   display: flex;
   flex-direction: space-between;
   align-items: center;
@@ -831,11 +835,13 @@ width: 100vw;
 }
 
 #dpad {
-  position: relative;
-  width: 350px;
-  height: 350px;
+  width: 20vh;
+  height: 20vh;
   border-radius: 50%;
   overflow: hidden;
+      position: fixed;
+    left: 80px;
+    bottom: 80px;
 }
 
 .dpad-button {
@@ -854,44 +860,48 @@ width: 100vw;
 }
 
 .right-arrow {
-top: 80px;
+top: 5vh;
     position: absolute;
-    right: 47px;
+    right: 2.5vh;
     transform: rotate(90deg);
-    font-size: 180px;
+    font-size: 3rem;
     color: rgba(0, 0, 0, 0.7);
     user-select: none;
+     -webkit-tap-highlight-color : transparent !important;
     
 }
 
 .left-arrow {
-top: 80px;
+top: 5vh;
     position: absolute;
-    right: 47px;
+    right: 2.5vh;
     transform: rotate(90deg);
-    font-size: 180px;
+    font-size: 3rem;
     color: rgba(0, 0, 0, 0.7);
     user-select: none;
+     -webkit-tap-highlight-color : transparent !important;
 }
 
 .up-arrow {
-  top: 80px;
+  top: 5vh;
     position: absolute;
-    right: 47px;
+    right: 2.5vh;
     transform: rotate(90deg);
-    font-size: 180px;
+    font-size: 3rem;
     color: rgba(0, 0, 0, 0.7);
     user-select: none;
+     -webkit-tap-highlight-color : transparent !important;
 }
 
 .down-arrow {
-top: 80px;
+top: 5vh;
     position: absolute;
-    right: 47px;
+    right: 2.5vh;
     transform: rotate(90deg);
-    font-size: 180px;
+    font-size: 3rem;
     color: rgba(0, 0, 0, 0.7);
     user-select: none;
+     -webkit-tap-highlight-color : transparent !important;
 }
 
 .dpad-button.left {
@@ -910,9 +920,9 @@ top: 80px;
 }
 
 .confirm-button {
-  width: 350px;
-  height: 350px;
-  font-size: 120px;
+  width: 20vh;
+  height: 20vh;
+  font-size: 2rem;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.5);
   border: none;
@@ -921,6 +931,10 @@ top: 80px;
   justify-content: center;
   align-items: center;
   color: rgba(0, 0, 0, 0.7);
+  right: 80px;
+  bottom: 80px;
+    position: fixed;
+     -webkit-tap-highlight-color : transparent !important;
 }
 
 
