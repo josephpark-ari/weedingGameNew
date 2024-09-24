@@ -29,6 +29,13 @@ document.body.style.overflow = 'hidden';
 //     // canvas.style.transform = 'translate(-50%, -50%)';
 // }
 
+var md = new MobileDetect(window.navigator.userAgent);
+
+if (md.mobile()) {
+    console.log('모바일 장치입니다.');
+} else {
+    console.log('PC 또는 데스크톱 장치입니다.');
+}
 // // 초기 설정 및 리사이즈 이벤트 추가
 // resizeCanvas();
 // window.addEventListener('resize', resizeCanvas);
@@ -784,9 +791,10 @@ addEventListener('click', () => {
 // 화면이 작아졌을 때 캔버스가 넘치지 않도록
 document.body.style.overflow = 'hidden';
 
-// 조작 버튼 추가
-window.addEventListener('DOMContentLoaded', () => {
-    const controlsHTML = `
+if (md.mobile()) {
+    // 조작 버튼 추가
+    window.addEventListener('DOMContentLoaded', () => {
+        const controlsHTML = `
   <div id="controlsBox">
     <div >
       <div id="controls">
@@ -814,10 +822,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
   `;
-    document.body.insertAdjacentHTML('beforeend', controlsHTML);
+        document.body.insertAdjacentHTML('beforeend', controlsHTML);
 
-    const style = document.createElement('style');
-    style.textContent = `
+        const style = document.createElement('style');
+        style.textContent = `
 
   #controlsBox {
   
@@ -835,8 +843,8 @@ width: 100%;
 }
 
 #dpad {
-  width: 20vh;
-  height: 20vh;
+  width: 340px;
+  height: 340px;
   border-radius: 50%;
   overflow: hidden;
       position: fixed;
@@ -860,11 +868,11 @@ width: 100%;
 }
 
 .right-arrow {
-top: 5vh;
+top: 65px;
     position: absolute;
-    right: 2.5vh;
+    right: 40px;
     transform: rotate(90deg);
-    font-size: 3rem;
+    font-size: 170px;
     color: rgba(0, 0, 0, 0.7);
     user-select: none;
      -webkit-tap-highlight-color : transparent !important;
@@ -872,33 +880,33 @@ top: 5vh;
 }
 
 .left-arrow {
-top: 5vh;
+top: 65px;
     position: absolute;
-    right: 2.5vh;
+    right: 40px;
     transform: rotate(90deg);
-    font-size: 3rem;
+    font-size: 170px;
     color: rgba(0, 0, 0, 0.7);
     user-select: none;
      -webkit-tap-highlight-color : transparent !important;
 }
 
 .up-arrow {
-  top: 5vh;
+  top: 65px;
     position: absolute;
-    right: 2.5vh;
+    right: 40px;
     transform: rotate(90deg);
-    font-size: 3rem;
+    font-size: 170px;
     color: rgba(0, 0, 0, 0.7);
     user-select: none;
      -webkit-tap-highlight-color : transparent !important;
 }
 
 .down-arrow {
-top: 5vh;
+top: 65px;
     position: absolute;
-    right: 2.5vh;
+    right: 40px;
     transform: rotate(90deg);
-    font-size: 3rem;
+    font-size: 170px;
     color: rgba(0, 0, 0, 0.7);
     user-select: none;
      -webkit-tap-highlight-color : transparent !important;
@@ -939,118 +947,128 @@ top: 5vh;
 
 
   `;
-    document.head.appendChild(style);
+        document.head.appendChild(style);
 
-    const setupButtonControls = (buttonId, startHandler, endHandler) => {
-        const button = document.getElementById(buttonId);
+        const setupButtonControls = (buttonId, startHandler, endHandler) => {
+            const button = document.getElementById(buttonId);
 
-        if (button) {
-            button.addEventListener('mousedown', startHandler);
-            button.addEventListener('mouseup', endHandler);
+            if (button) {
+                button.addEventListener('mousedown', startHandler);
+                button.addEventListener('mouseup', endHandler);
 
-            button.addEventListener('touchstart', startHandler);
-            button.addEventListener('touchend', endHandler);
-        } else {
-            console.error(`${buttonId} button not found`);
-        }
-    };
-
-    const handleUpStart = () => {
-        keys.w.pressed = true;
-        lastKey = 'w';
-        console.log('Up button pressed');
-    };
-
-    const handleUpEnd = () => {
-        keys.w.pressed = false;
-        console.log('Up button released');
-    };
-
-    const handleLeftStart = () => {
-        keys.a.pressed = true;
-        lastKey = 'a';
-        console.log('Left button pressed');
-    };
-
-    const handleLeftEnd = () => {
-        keys.a.pressed = false;
-        console.log('Left button released');
-    };
-
-    const handleDownStart = () => {
-        keys.s.pressed = true;
-        lastKey = 's';
-        console.log('Down button pressed');
-    };
-
-    const handleDownEnd = () => {
-        keys.s.pressed = false;
-        console.log('Down button released');
-    };
-
-    const handleRightStart = () => {
-        keys.d.pressed = true;
-        lastKey = 'd';
-        console.log('Right button pressed');
-    };
-
-    const handleRightEnd = () => {
-        keys.d.pressed = false;
-        console.log('Right button released');
-    };
-
-    setupButtonControls('up', handleUpStart, handleUpEnd);
-    setupButtonControls('left', handleLeftStart, handleLeftEnd);
-    setupButtonControls('down', handleDownStart, handleDownEnd);
-    setupButtonControls('right', handleRightStart, handleRightEnd);
-
-    document.getElementById('confirm').addEventListener('click', () => {
-        if (player.isInteracting) {
-            player.interactionAsset.dialogueIndex++;
-
-            const { dialogueIndex, dialogue } = player.interactionAsset;
-            if (dialogueIndex <= dialogue.length - 1) {
-                document.querySelector('#characterDialogueBox').innerHTML =
-                    player.interactionAsset.dialogue[dialogueIndex];
-                return;
+                button.addEventListener('touchstart', startHandler);
+                button.addEventListener('touchend', endHandler);
+            } else {
+                console.error(`${buttonId} button not found`);
             }
+        };
 
-            // finish conversation
-            player.isInteracting = false;
-            player.interactionAsset.dialogueIndex = 0;
-            document.querySelector('#characterDialogueBox').style.display = 'none';
+        const handleUpStart = () => {
+            keys.w.pressed = true;
+            lastKey = 'w';
+            console.log('Up button pressed');
+        };
 
-            if (player.interactionAsset.id === 'youTube_man') {
-                // 유튜브 링크로 새창 열기
-                // window.open('https://www.youtube.com/watch?v=X2HQps2QAqI', '_blank');
+        const handleUpEnd = () => {
+            keys.w.pressed = false;
+            console.log('Up button released');
+        };
+
+        const handleLeftStart = () => {
+            keys.a.pressed = true;
+            lastKey = 'a';
+            console.log('Left button pressed');
+        };
+
+        const handleLeftEnd = () => {
+            keys.a.pressed = false;
+            console.log('Left button released');
+        };
+
+        const handleDownStart = () => {
+            keys.s.pressed = true;
+            lastKey = 's';
+            console.log('Down button pressed');
+        };
+
+        const handleDownEnd = () => {
+            keys.s.pressed = false;
+            console.log('Down button released');
+        };
+
+        const handleRightStart = () => {
+            keys.d.pressed = true;
+            lastKey = 'd';
+            console.log('Right button pressed');
+        };
+
+        const handleRightEnd = () => {
+            keys.d.pressed = false;
+            console.log('Right button released');
+        };
+
+        setupButtonControls('up', handleUpStart, handleUpEnd);
+        setupButtonControls('left', handleLeftStart, handleLeftEnd);
+        setupButtonControls('down', handleDownStart, handleDownEnd);
+        setupButtonControls('right', handleRightStart, handleRightEnd);
+
+        document.getElementById('confirm').addEventListener('click', () => {
+            document.querySelector('#dpad').style.bottom = '620px';
+            document.querySelector('#confirm').style.bottom = '620px';
+
+            if (player.isInteracting) {
+                player.interactionAsset.dialogueIndex++;
+
+                const { dialogueIndex, dialogue } = player.interactionAsset;
+                if (dialogueIndex <= dialogue.length - 1) {
+                    document.querySelector('#characterDialogueBox').innerHTML =
+                        player.interactionAsset.dialogue[dialogueIndex];
+                    return;
+                }
+                document.querySelector('#dpad').style.bottom = '80px';
+                document.querySelector('#confirm').style.bottom = '80px';
+
+                // finish conversation
+                player.isInteracting = false;
+                player.interactionAsset.dialogueIndex = 0;
+                document.querySelector('#characterDialogueBox').style.display = 'none';
+
+                if (player.interactionAsset.id === 'youTube_man') {
+                    // 유튜브 링크로 새창 열기
+                    // window.open('https://www.youtube.com/watch?v=X2HQps2QAqI', '_blank');
+                }
+                if (player.interactionAsset.id === 'poster_man') {
+                    document.querySelector('#dpad').style.display = 'none';
+                    document.querySelector('#confirm').style.display = 'none';
+                    // 포스터 이미지를 화면에 추가
+                    const posterImage = document.createElement('img');
+                    posterImage.src = './img/poster.png'; // 포스터 이미지 경로
+                    posterImage.style.position = 'fixed';
+                    posterImage.style.top = '50%';
+                    posterImage.style.left = '50%';
+                    posterImage.style.transform = 'translate(-50%, -50%)';
+                    posterImage.style.width = '80%'; // 필요에 따라 크기 조정
+                    posterImage.style.height = 'auto';
+                    posterImage.style.cursor = 'pointer';
+                    posterImage.style.zIndex = '1000'; // 다른 요소 위에 표시되도록 z-index 설정
+                    posterImage.id = 'poster';
+
+                    document.body.appendChild(posterImage);
+
+                    // 클릭 시 포스터 이미지를 제거
+                    posterImage.addEventListener('click', () => {
+                        document.body.removeChild(posterImage);
+                        document.querySelector('#dpad').style.display = 'block';
+                        document.querySelector('#confirm').style.display = 'block';
+                    });
+                }
+            } else if (player.interactionAsset) {
+                // beginning the conversation
+                const firstMessage = player.interactionAsset.dialogue[0];
+                document.querySelector('#characterDialogueBox').innerHTML = firstMessage;
+                document.querySelector('#characterDialogueBox').style.display = 'flex';
+                player.isInteracting = true;
             }
-            if (player.interactionAsset.id === 'poster_man') {
-                // 포스터 이미지를 화면에 추가
-                const posterImage = document.createElement('img');
-                posterImage.src = './img/poster.png'; // 포스터 이미지 경로
-                posterImage.style.position = 'fixed';
-                posterImage.style.top = '50%';
-                posterImage.style.left = '50%';
-                posterImage.style.transform = 'translate(-50%, -50%)';
-                posterImage.style.width = '80%'; // 필요에 따라 크기 조정
-                posterImage.style.height = 'auto';
-                posterImage.style.cursor = 'pointer';
-                posterImage.style.zIndex = '1000'; // 다른 요소 위에 표시되도록 z-index 설정
-                posterImage.id = 'poster';
-
-                document.body.appendChild(posterImage);
-
-                // 클릭 시 포스터 이미지를 제거
-                posterImage.addEventListener('click', () => {
-                    document.body.removeChild(posterImage);
-                });
-            }
-        } else if (player.interactionAsset) {
-            // beginning the conversation
-            const firstMessage = player.interactionAsset.dialogue[0];
-            document.querySelector('#characterDialogueBox').innerHTML = firstMessage;
-            document.querySelector('#characterDialogueBox').style.display = 'flex';
-            player.isInteracting = true;
-        }
+        });
     });
-});
+}
