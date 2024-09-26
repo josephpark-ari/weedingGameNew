@@ -693,7 +693,7 @@ window.addEventListener('keydown', e => {
 
                 if (player.interactionAsset.id === 'youTube_man') {
                     // 유튜브 링크로 새창 열기
-                    // window.open('https://www.youtube.com/watch?v=X2HQps2QAqI', '_blank')
+                    window.open('https://www.youtube.com/watch?v=X2HQps2QAqI', '_blank');
                 }
                 if (player.interactionAsset.id === 'poster_man') {
                     // 포스터 이미지를 화면에 추가
@@ -913,7 +913,7 @@ if (md.mobile()) {
         bottom: 80px;
         position: fixed;
       }
-
+      
       .dpad-button,
       .confirm-button {
         background-color: rgba(255, 255, 255, 0.5);
