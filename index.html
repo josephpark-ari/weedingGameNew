@@ -6,6 +6,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.5/mobile-detect.min.js"></script>
+    <!-- LightGallery CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery.min.css" />
+
+    <!-- LightGallery JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/lightgallery.umd.min.js"></script>
+
     <style>
         @font-face {
             font-family: 'CHOGOONCHICKENSCRATCHV5';
@@ -51,6 +57,23 @@
     </style>
 </head>
 <body>
+    <!-- LightGallery 갤러리 -->
+    <div id="lightgallery">
+        <a href="img/Test1.jpeg">
+            <img src="img/Test1.jpeg" alt="Photo 1" width="200" />
+        </a>
+        <a href="img/Test1.jpeg">
+            <img src="img/Test1.jpeg" alt="Photo 2" width="200" />
+        </a>
+        <a href="img/Test1.jpeg">
+            <img src="img/Test1.jpeg" alt="Photo 3" width="200" />
+        </a>
+    </div>
+
+    <script>
+        // LightGallery 초기화
+        lightGallery(document.getElementById('lightgallery'));
+    </script>
     <div style="display: inline-block; position: relative">
         <div
             id="overlappingDiv"
