@@ -999,9 +999,6 @@ if (md.mobile()) {
         setupButtonControls('right', handleRightStart, handleRightEnd);
 
         document.getElementById('confirm').addEventListener('click', () => {
-            document.querySelector('#dpad').style.bottom = '620px';
-            document.querySelector('#confirm').style.bottom = '620px';
-
             if (player.isInteracting) {
                 player.interactionAsset.dialogueIndex++;
 
@@ -1049,6 +1046,8 @@ if (md.mobile()) {
                     });
                 }
             } else if (player.interactionAsset) {
+                document.querySelector('#dpad').style.bottom = '620px';
+                document.querySelector('#confirm').style.bottom = '620px';
                 // beginning the conversation
                 const firstMessage = player.interactionAsset.dialogue[0];
                 document.querySelector('#characterDialogueBox').innerHTML = firstMessage;
