@@ -1,13 +1,21 @@
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 
+var md = new MobileDetect(window.navigator.userAgent);
+
+if (md.mobile()) {
+    canvas.style.width = window.innerHeight * 1.75;
+    canvas.style.height = window.innerHeight;
+} else {
+    canvas.width = 1774;
+    canvas.height = 1325;
+}
+
 // 고정된 캔버스 크기 설정
 // canvas.width = 1774
 // canvas.height = 1325
 // 고정된 크기로 설정
 // canvas.style.width = '1774px';
-canvas.style.width = window.innerHeight * 1.75;
-canvas.style.height = window.innerHeight;
 // alert(window.innerHeight * 1.75);
 
 // 화면이 작아졌을 때 캔버스가 넘치지 않도록
@@ -29,13 +37,6 @@ document.body.style.overflow = 'hidden';
 //     // canvas.style.transform = 'translate(-50%, -50%)';
 // }
 
-var md = new MobileDetect(window.navigator.userAgent);
-
-if (md.mobile()) {
-    console.log('모바일 장치입니다.');
-} else {
-    console.log('PC 또는 데스크톱 장치입니다.');
-}
 // // 초기 설정 및 리사이즈 이벤트 추가
 // resizeCanvas();
 // window.addEventListener('resize', resizeCanvas);
@@ -859,12 +860,18 @@ width: 100%;
   background-color: rgba(255, 255, 255, 0.5);
   border: none;
   clip-path: polygon(49% 50%, 100% 0, 100% 100%);
-  user-select: none;
+    user-select: none; /* 텍스트 선택 방지 */
+  -webkit-user-select: none; /* Safari와 iOS에서 텍스트 선택 방지 */
+  -ms-user-select: none; /* IE에서 텍스트 선택 방지 */
+  -webkit-touch-callout: none; /* iOS에서 "복사하기" 메뉴 숨기기 */
 }
 
 .dpad-button.up {
   transform: rotate(0deg);
-  user-select: none;
+    user-select: none; /* 텍스트 선택 방지 */
+  -webkit-user-select: none; /* Safari와 iOS에서 텍스트 선택 방지 */
+  -ms-user-select: none; /* IE에서 텍스트 선택 방지 */
+  -webkit-touch-callout: none; /* iOS에서 "복사하기" 메뉴 숨기기 */
 }
 
 .right-arrow {
@@ -874,8 +881,10 @@ top: 65px;
     transform: rotate(90deg);
     font-size: 170px;
     color: rgba(0, 0, 0, 0.7);
-    user-select: none;
-     -webkit-tap-highlight-color : transparent !important;
+  user-select: none; /* 텍스트 선택 방지 */
+  -webkit-user-select: none; /* Safari와 iOS에서 텍스트 선택 방지 */
+  -ms-user-select: none; /* IE에서 텍스트 선택 방지 */
+  -webkit-touch-callout: none; /* iOS에서 "복사하기" 메뉴 숨기기 */
     
 }
 
@@ -886,8 +895,10 @@ top: 65px;
     transform: rotate(90deg);
     font-size: 170px;
     color: rgba(0, 0, 0, 0.7);
-    user-select: none;
-     -webkit-tap-highlight-color : transparent !important;
+  user-select: none; /* 텍스트 선택 방지 */
+  -webkit-user-select: none; /* Safari와 iOS에서 텍스트 선택 방지 */
+  -ms-user-select: none; /* IE에서 텍스트 선택 방지 */
+  -webkit-touch-callout: none; /* iOS에서 "복사하기" 메뉴 숨기기 */
 }
 
 .up-arrow {
@@ -897,8 +908,10 @@ top: 65px;
     transform: rotate(90deg);
     font-size: 170px;
     color: rgba(0, 0, 0, 0.7);
-    user-select: none;
-     -webkit-tap-highlight-color : transparent !important;
+  user-select: none; /* 텍스트 선택 방지 */
+  -webkit-user-select: none; /* Safari와 iOS에서 텍스트 선택 방지 */
+  -ms-user-select: none; /* IE에서 텍스트 선택 방지 */
+  -webkit-touch-callout: none; /* iOS에서 "복사하기" 메뉴 숨기기 */
 }
 
 .down-arrow {
@@ -908,8 +921,10 @@ top: 65px;
     transform: rotate(90deg);
     font-size: 170px;
     color: rgba(0, 0, 0, 0.7);
-    user-select: none;
-     -webkit-tap-highlight-color : transparent !important;
+  user-select: none; /* 텍스트 선택 방지 */
+  -webkit-user-select: none; /* Safari와 iOS에서 텍스트 선택 방지 */
+  -ms-user-select: none; /* IE에서 텍스트 선택 방지 */
+  -webkit-touch-callout: none; /* iOS에서 "복사하기" 메뉴 숨기기 */
 }
 
 .dpad-button.left {
@@ -942,7 +957,10 @@ top: 65px;
   right: 80px;
   bottom: 80px;
     position: fixed;
-     -webkit-tap-highlight-color : transparent !important;
+     user-select: none; /* 텍스트 선택 방지 */
+  -webkit-user-select: none; /* Safari와 iOS에서 텍스트 선택 방지 */
+  -ms-user-select: none; /* IE에서 텍스트 선택 방지 */
+  -webkit-touch-callout: none; /* iOS에서 "복사하기" 메뉴 숨기기 */
 }
 
 
