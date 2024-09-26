@@ -1022,7 +1022,7 @@ if (md.mobile()) {
 
                 if (player.interactionAsset.id === 'youTube_man') {
                     // 유튜브 링크로 새창 열기
-                    // window.open('https://www.youtube.com/watch?v=X2HQps2QAqI', '_blank');
+                    window.open('https://www.youtube.com/watch?v=X2HQps2QAqI', '_blank');
                 }
                 if (player.interactionAsset.id === 'poster_man') {
                     document.querySelector('#dpad').style.display = 'none';
