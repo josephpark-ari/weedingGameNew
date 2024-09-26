@@ -815,156 +815,105 @@ if (md.mobile()) {
       </div>
   <button id="confirm" class="confirm-button">확인</button>
       </div>
-      
-</div>
   </div>
-
-
-
-
   `;
+
+        // HTML 추가
         document.body.insertAdjacentHTML('beforeend', controlsHTML);
 
+        // 스타일 추가
         const style = document.createElement('style');
         style.textContent = `
-
-  #controlsBox {
-  
-    position: fixed;
-  bottom: 20px;
-  left: 20px;
-  }
-  #controls {
-width: 100%;
-  display: flex;
-  flex-direction: space-between;
-  align-items: center;
-  gap: 20px;
-  
-}
-
-#dpad {
-  width: 340px;
-  height: 340px;
-  border-radius: 50%;
-  overflow: hidden;
-      position: fixed;
-    left: 80px;
-    bottom: 80px;
-}
-
-.dpad-button {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: none;
-  clip-path: polygon(49% 50%, 100% 0, 100% 100%);
-    user-select: none; /* 텍스트 선택 방지 */
-  -webkit-user-select: none; /* Safari와 iOS에서 텍스트 선택 방지 */
-  -ms-user-select: none; /* IE에서 텍스트 선택 방지 */
-  -webkit-touch-callout: none; /* iOS에서 "복사하기" 메뉴 숨기기 */
-}
-
-.dpad-button.up {
-  transform: rotate(0deg);
-    user-select: none; /* 텍스트 선택 방지 */
-  -webkit-user-select: none; /* Safari와 iOS에서 텍스트 선택 방지 */
-  -ms-user-select: none; /* IE에서 텍스트 선택 방지 */
-  -webkit-touch-callout: none; /* iOS에서 "복사하기" 메뉴 숨기기 */
-}
-
-.right-arrow {
-top: 65px;
-    position: absolute;
-    right: 40px;
-    transform: rotate(90deg);
-    font-size: 170px;
-    color: rgba(0, 0, 0, 0.7);
-  user-select: none; /* 텍스트 선택 방지 */
-  -webkit-user-select: none; /* Safari와 iOS에서 텍스트 선택 방지 */
-  -ms-user-select: none; /* IE에서 텍스트 선택 방지 */
-  -webkit-touch-callout: none; /* iOS에서 "복사하기" 메뉴 숨기기 */
-    
-}
-
-.left-arrow {
-top: 65px;
-    position: absolute;
-    right: 40px;
-    transform: rotate(90deg);
-    font-size: 170px;
-    color: rgba(0, 0, 0, 0.7);
-  user-select: none; /* 텍스트 선택 방지 */
-  -webkit-user-select: none; /* Safari와 iOS에서 텍스트 선택 방지 */
-  -ms-user-select: none; /* IE에서 텍스트 선택 방지 */
-  -webkit-touch-callout: none; /* iOS에서 "복사하기" 메뉴 숨기기 */
-}
-
-.up-arrow {
-  top: 65px;
-    position: absolute;
-    right: 40px;
-    transform: rotate(90deg);
-    font-size: 170px;
-    color: rgba(0, 0, 0, 0.7);
-  user-select: none; /* 텍스트 선택 방지 */
-  -webkit-user-select: none; /* Safari와 iOS에서 텍스트 선택 방지 */
-  -ms-user-select: none; /* IE에서 텍스트 선택 방지 */
-  -webkit-touch-callout: none; /* iOS에서 "복사하기" 메뉴 숨기기 */
-}
-
-.down-arrow {
-top: 65px;
-    position: absolute;
-    right: 40px;
-    transform: rotate(90deg);
-    font-size: 170px;
-    color: rgba(0, 0, 0, 0.7);
-  user-select: none; /* 텍스트 선택 방지 */
-  -webkit-user-select: none; /* Safari와 iOS에서 텍스트 선택 방지 */
-  -ms-user-select: none; /* IE에서 텍스트 선택 방지 */
-  -webkit-touch-callout: none; /* iOS에서 "복사하기" 메뉴 숨기기 */
-}
-
-.dpad-button.left {
-  transform: rotate(90deg);
-  user-select: none;
-}
-
-.dpad-button.down {
-  transform: rotate(180deg);
-  user-select: none;
-}
-
-.dpad-button.right {
-  transform: rotate(270deg);
-  user-select: none;
-}
-
-.confirm-button {
-  width: 20vh;
-  height: 20vh;
-  font-size: 2rem;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: none;
-  user-select: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgba(0, 0, 0, 0.7);
-  right: 80px;
-  bottom: 80px;
-    position: fixed;
-     user-select: none; /* 텍스트 선택 방지 */
-  -webkit-user-select: none; /* Safari와 iOS에서 텍스트 선택 방지 */
-  -ms-user-select: none; /* IE에서 텍스트 선택 방지 */
-  -webkit-touch-callout: none; /* iOS에서 "복사하기" 메뉴 숨기기 */
-}
-
-
-  `;
+      #controlsBox {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+      }
+      #controls {
+        width: 100%;
+        display: flex;
+        flex-direction: space-between;
+        align-items: center;
+        gap: 20px;
+      }
+      #dpad {
+        width: 340px;
+        height: 340px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: fixed;
+        left: 80px;
+        bottom: 80px;
+      }
+      .dpad-button {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        clip-path: polygon(49% 50%, 100% 0, 100% 100%);
+      }
+      .dpad-button.up {
+        transform: rotate(0deg);
+      }
+      .right-arrow {
+        top: 65px;
+        position: absolute;
+        right: 40px;
+        transform: rotate(90deg);
+        font-size: 170px;
+        color: rgba(0, 0, 0, 0.7);
+      }
+      .left-arrow {
+        top: 65px;
+        position: absolute;
+        right: 40px;
+        transform: rotate(90deg);
+        font-size: 170px;
+        color: rgba(0, 0, 0, 0.7);
+      }
+      .up-arrow {
+        top: 65px;
+        position: absolute;
+        right: 40px;
+        transform: rotate(90deg);
+        font-size: 170px;
+        color: rgba(0, 0, 0, 0.7);
+      }
+      .down-arrow {
+        top: 65px;
+        position: absolute;
+        right: 40px;
+        transform: rotate(90deg);
+        font-size: 170px;
+        color: rgba(0, 0, 0, 0.7);
+      }
+      .dpad-button.left {
+        transform: rotate(90deg);
+      }
+      .dpad-button.down {
+        transform: rotate(180deg);
+      }
+      .dpad-button.right {
+        transform: rotate(270deg);
+      }
+      .confirm-button {
+        width: 20vh;
+        height: 20vh;
+        font-size: 2rem;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        user-select: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgba(0, 0, 0, 0.7);
+        right: 80px;
+        bottom: 80px;
+        position: fixed;
+      }
+    `;
         document.head.appendChild(style);
 
         const setupButtonControls = (buttonId, startHandler, endHandler) => {
