@@ -924,6 +924,10 @@ if (md.mobile()) {
       }
 
       .dpad-button:hover,
+      .dpad-button.up:hover,
+      .dpad-button.down:hover,
+      .dpad-button.left:hover,
+      .dpad-button.right:hover,
       .confirm-button:hover,
       .dpad-button:active,
       .confirm-button:active,
