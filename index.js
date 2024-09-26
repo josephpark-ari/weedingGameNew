@@ -913,6 +913,25 @@ if (md.mobile()) {
         bottom: 80px;
         position: fixed;
       }
+
+      .dpad-button,
+      .confirm-button {
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        outline: none;
+        -webkit-tap-highlight-color: transparent; /* 모바일 터치 하이라이트 제거 */
+        user-select: none;
+      }
+
+      .dpad-button:hover,
+      .confirm-button:hover,
+      .dpad-button:active,
+      .confirm-button:active,
+      .dpad-button:focus,
+      .confirm-button:focus {
+        background-color: rgba(255, 255, 255, 0.5); /* 호버 상태에서도 배경 유지 */
+        outline: none; /* 포커스 outline 제거 */
+      }
     `;
         document.head.appendChild(style);
 
