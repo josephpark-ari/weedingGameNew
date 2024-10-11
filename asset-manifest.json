@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6c38bdd1.css",
+    "main.js": "/static/js/main.d19ca444.js",
+    "static/media/tileset_extruded.png": "/static/media/tileset_extruded.cc736b33586091bda3b2.png",
+    "static/media/PixelOperator.ttf": "/static/media/PixelOperator.b42790276a8fc0c79bda.ttf",
+    "static/media/player.png": "/static/media/player.bb5d56828c606f6a0f31.png",
+    "index.html": "/index.html",
+    "main.6c38bdd1.css.map": "/static/css/main.6c38bdd1.css.map",
+    "main.d19ca444.js.map": "/static/js/main.d19ca444.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6c38bdd1.css",
+    "static/js/main.d19ca444.js"
+  ]
+}
